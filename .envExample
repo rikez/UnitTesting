@@ -1,0 +1,13 @@
+
+PORT=3000
+ENVIRONMENT=dev
+
+DB_NAME=enricounittest
+DB_HOST=ds129018.mlab.com
+DB_PASSWORD=12345t
+DB_LOGIN=enrich
+DB_PORT=29018
+
+
+
+
