@@ -9,8 +9,8 @@ describe('UserController Unit Testing', () => {
         api.post('/users')
             .send({
                 name:"Enrico Alvarenga", 
-                email: "enricomalvarenga9002@gmail.com", 
-                nickname: "enrich92", 
+                email: "teste1@gmail.com", 
+                nickname: "teste1", 
                 password:"12345t",
                 picture: "xyz", 
                 dateOfBirth: "10-21-1996"
@@ -35,12 +35,11 @@ describe('UserController Unit Testing', () => {
             });
     })
 
-    it("should return data as instance of Object and have to be length 1", function(done){
+    it("should return data as instance of Object", function(done){
         api.get("/users/590b3ba8a1c11931359ab4be")
             .expect(200)
             .end((err, res) => {
                 res.body.data.should.be.an.instanceof(Object);
-                res.body.data.should.have.length(1);
                 done();
             });
     })
