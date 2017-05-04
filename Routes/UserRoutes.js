@@ -1,5 +1,8 @@
+
 module.exports = (app) => { 
 
-    app.post('/users', app.Controllers.UserController.create);
+    app.route('/users')
+        .post(app.Controllers.UserController.create)
+        .get(app.Controllers.UserController.list);
 
 }
