@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const autoload = require('express-load');
+const autoload = require('consign');
 const errorMiddleware = require('../Middlewares/ErrorMiddleware').ErrorMiddleware;
 const authMiddleware = require('../Middlewares/AuthMiddleware').AuthMiddleware;
 const environmentVars = require('dotenv')
@@ -25,8 +25,10 @@ app.use('/dashboard', authMiddleware.isAuthenticatedToken)
 
 
 
-autoload('Models')
+autoload()
+    .include('Models')
     .then('Middlewares')
+    .then('Services')
     .then('Controllers')
     .then('Routes')
     .into(app, (err, instance) => {
